@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expertise — Steven Snyder Photography</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-expertise">
+
+  <nav class="nav" id="main-nav">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="Steven Snyder Photography" class="nav-logo-img">
+    </a>
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="expertise.html"    class="nav-link active">Expertise</a></li>
+      <li class="nav-item">
+        <a href="events.html" class="nav-link">Portfolio</a>
+        <ul class="nav-dropdown">
+          <li><a href="events.html">Events</a></li>
+          <li><a href="wildlife.html">Wildlife</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="contact.html"      class="nav-link">Contact Us</a></li>
+      <li class="nav-item"><a href="testimonials.html" class="nav-link">Testimonials</a></li>
+      <li class="nav-item"><a href="about.html"        class="nav-link">About</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header-plain container">
+    <p class="page-eyebrow">What I do</p>
+    <h1 class="page-title">Expertise</h1>
+  </div>
+
+  <main class="container">
+    <div class="contact-wrap">
+      <p class="contact-intro">
+        <!-- Edit this section to describe your photographic specialties -->
+        Steven Snyder specializes in event and wildlife photography, with a particular
+        passion for birding in the Caribbean and beyond. Whether documenting a community
+        celebration or stalking a rare species through dense forest, the goal is always
+        the same — photographs that reward a second look.
+      </p>
+
+      <div class="contact-row">
+        <span class="contact-label">Events</span>
+        <span class="contact-value">Community events, celebrations, and cultural gatherings</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">Wildlife</span>
+        <span class="contact-value">Birds, nature, and wildlife — with an emphasis on avian photography</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">Locations</span>
+        <span class="contact-value">United States, Caribbean, and wherever the birds are</span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span class="footer-logo">Steven Snyder <em>Photography</em></span>
+    <span class="footer-copy">&copy; <span id="yr"></span> Steven Snyder · All rights reserved</span>
+  </footer>
+
+  <script src="js/gallery.js"></script>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

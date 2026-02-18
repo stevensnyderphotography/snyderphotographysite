@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birding — Steven Snyder Photography</title>
+  <meta name="description" content="Bird photography by Steven Snyder — Birds of Dominica and beyond.">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="page-gallery">
+
+    <nav class="nav" id="main-nav">
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/logo.png" alt="Steven Snyder Photography" class="nav-logo-img">
+    </a>
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="../expertise.html"    class="nav-link">Expertise</a></li>
+      <li class="nav-item">
+        <a href="../events.html" class="nav-link">Portfolio</a>
+        <ul class="nav-dropdown">
+          <li><a href="../events.html">Events</a></li>
+          <li><a href="../wildlife.html">Wildlife</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="../contact.html"      class="nav-link">Contact Us</a></li>
+      <li class="nav-item"><a href="../testimonials.html" class="nav-link">Testimonials</a></li>
+      <li class="nav-item"><a href="../about.html"        class="nav-link">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="page-header-bg"
+         style="background-image: url('../photos/wildlife/birding/DSC05735.jpg');"></div>
+    <div class="page-header-content">
+      <p class="page-eyebrow">Wildlife</p>
+      <h1 class="page-title">Birding</h1>
+      <p class="page-desc">Birds of Dominica &middot; Caribbean</p>
+    </div>
+  </header>
+
+  <!-- Gallery -->
+  <main class="container">
+    <div class="gallery-wrap">
+      <p class="gallery-count" id="gallery-count"></p>
+      <div id="gallery-container"></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span class="footer-logo">Steven Snyder <em>Photography</em></span>
+    <span class="footer-copy">&copy; <span id="yr"></span> Steven Snyder · All rights reserved</span>
+  </footer>
+
+  <script src="../js/gallery.js"></script>
+  <script>
+    /* ============================================================
+       BIRDING — Photo List
+       ============================================================
+       TO ADD A PHOTO:
+         1. Copy the .jpg file into:  photos/wildlife/birding/
+         2. Add the filename as a new line in the array below.
+       ============================================================ */
+    const PHOTOS = [
+      'DSC01503.jpg',
+      'DSC03290.jpg',
+      'DSC04833.jpg',
+      'DSC04892.jpg',
+      'DSC05233.jpg',
+      'DSC05321.jpg',
+      'DSC05502.jpg',
+      'DSC05735.jpg',
+      'DSC05795.jpg',
+      'DSC05816.jpg',
+      'DSC05819.jpg',
+      'DSC05977.jpg',
+      'DSC06132.jpg',
+      'DSC06162.jpg',
+      'DSC09964-2.jpg',
+    ];
+
+    const PHOTOS_PATH = '../photos/wildlife/birding';
+
+    new Gallery('gallery-container', PHOTOS, PHOTOS_PATH);
+
+    document.getElementById('gallery-count').textContent =
+      PHOTOS.length + ' photographs';
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Steven Snyder Photography</title>
+  <meta name="description" content="Contact Steven Snyder Photography.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-contact">
+
+    <nav class="nav" id="main-nav">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="Steven Snyder Photography" class="nav-logo-img">
+    </a>
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="expertise.html"    class="nav-link">Expertise</a></li>
+      <li class="nav-item">
+        <a href="events.html" class="nav-link">Portfolio</a>
+        <ul class="nav-dropdown">
+          <li><a href="events.html">Events</a></li>
+          <li><a href="wildlife.html">Wildlife</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="contact.html"      class="nav-link">Contact Us</a></li>
+      <li class="nav-item"><a href="testimonials.html" class="nav-link">Testimonials</a></li>
+      <li class="nav-item"><a href="about.html"        class="nav-link">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <div class="page-header-plain container">
+    <p class="page-eyebrow">Get in touch</p>
+    <h1 class="page-title">Contact</h1>
+  </div>
+
+  <!-- Contact content -->
+  <main class="container">
+    <div class="contact-wrap">
+
+      <p class="contact-intro">
+        Interested in prints, licensing, or booking for an event?
+        I'd love to hear from you. Reach out through any of the channels below.
+      </p>
+
+      <!-- ============================================================
+           UPDATE YOUR CONTACT DETAILS BELOW
+           ============================================================ -->
+
+      <div class="contact-row">
+        <span class="contact-label">Website</span>
+        <span class="contact-value">stevensnyderphotography.com</span>
+      </div>
+
+      <div class="contact-row">
+        <span class="contact-label">Email</span>
+        <!-- Replace with your real email address -->
+        <span class="contact-value">
+          <a href="mailto:hello@stevensnyderphotography.com">
+            hello@stevensnyderphotography.com
+          </a>
+        </span>
+      </div>
+
+      <div class="contact-row">
+        <span class="contact-label">Location</span>
+        <span class="contact-value">United States</span>
+      </div>
+
+      <!-- Add or remove rows as needed. Pattern:
+      <div class="contact-row">
+        <span class="contact-label">Label</span>
+        <span class="contact-value">Value (or <a href="...">linked value</a>)</span>
+      </div>
+      -->
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span class="footer-logo">Steven Snyder <em>Photography</em></span>
+    <span class="footer-copy">&copy; <span id="yr"></span> Steven Snyder · All rights reserved</span>
+  </footer>
+
+  <script src="js/gallery.js"></script>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

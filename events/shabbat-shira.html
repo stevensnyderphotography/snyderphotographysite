@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shabbat Shira — Steven Snyder Photography</title>
+  <meta name="description" content="Shabbat Shira event photography by Steven Snyder.">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="page-gallery">
+
+    <nav class="nav" id="main-nav">
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/logo.png" alt="Steven Snyder Photography" class="nav-logo-img">
+    </a>
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="../expertise.html"    class="nav-link">Expertise</a></li>
+      <li class="nav-item">
+        <a href="../events.html" class="nav-link">Portfolio</a>
+        <ul class="nav-dropdown">
+          <li><a href="../events.html">Events</a></li>
+          <li><a href="../wildlife.html">Wildlife</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="../contact.html"      class="nav-link">Contact Us</a></li>
+      <li class="nav-item"><a href="../testimonials.html" class="nav-link">Testimonials</a></li>
+      <li class="nav-item"><a href="../about.html"        class="nav-link">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="page-header-bg"
+         style="background-image: url('../photos/events/shabbat-shira/DSC00779-DxO_DeepPRIME-XD2s-2.jpg');"></div>
+    <div class="page-header-content">
+      <p class="page-eyebrow">Events</p>
+      <h1 class="page-title">Shabbat Shira</h1>
+    </div>
+  </header>
+
+  <!-- Gallery -->
+  <main class="container">
+    <div class="gallery-wrap">
+      <p class="gallery-count" id="gallery-count"></p>
+      <div id="gallery-container"></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span class="footer-logo">Steven Snyder <em>Photography</em></span>
+    <span class="footer-copy">&copy; <span id="yr"></span> Steven Snyder · All rights reserved</span>
+  </footer>
+
+  <script src="../js/gallery.js"></script>
+  <script>
+    /* ============================================================
+       SHABBAT SHIRA — Photo List
+       ============================================================
+       TO ADD A PHOTO:
+         1. Copy the .jpg file into:  photos/events/shabbat-shira/
+         2. Add the filename as a new line in the array below.
+       ============================================================ */
+    const PHOTOS = [
+      'DSC00168-DxO_DeepPRIME-XD2s-2.jpg',
+      'DSC00304-DxO_DeepPRIME-XD2s-2.jpg',
+      'DSC00474-DxO_DeepPRIME-XD2s-2.jpg',
+      'DSC00538-DxO_DeepPRIME-XD2s-2.jpg',
+      'DSC00555-DxO_DeepPRIME-XD2s-2.jpg',
+      'DSC00736-DxO_DeepPRIME-XD2s-2.jpg',
+      'DSC00779-DxO_DeepPRIME-XD2s-2.jpg',
+      'DSC00991-DxO_DeepPRIME-XD2s-2.jpg',
+      'DSC09724-DxO_DeepPRIME-XD2s-2.jpg',
+      'DSC09892-DxO_DeepPRIME-XD2s-2.jpg',
+    ];
+
+    const PHOTOS_PATH = '../photos/events/shabbat-shira';
+
+    new Gallery('gallery-container', PHOTOS, PHOTOS_PATH);
+
+    document.getElementById('gallery-count').textContent =
+      PHOTOS.length + ' photographs';
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

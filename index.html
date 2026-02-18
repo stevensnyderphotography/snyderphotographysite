@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Steven Snyder Photography</title>
+  <meta name="description" content="Photography by Steven Snyder — events, wildlife, and birding.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-home">
+
+  <!-- ============================================================
+       SPLASH — white full-screen section
+       ============================================================ -->
+  <section class="splash">
+
+    <!-- Logo centered at top -->
+    <div class="splash-logo-wrap">
+      <a href="index.html">
+        <img src="assets/logo-black.png" alt="Steven Snyder Photography" class="splash-logo">
+      </a>
+    </div>
+
+    <!-- Nav links -->
+    <nav class="splash-nav">
+      <a href="expertise.html">Expertise</a>
+      <span class="splash-dot">&middot;</span>
+      <span class="splash-dropdown-wrap">
+        <a href="events.html">Portfolio</a>
+        <div class="splash-dropdown">
+          <a href="events.html">Events</a>
+          <a href="wildlife.html">Wildlife</a>
+        </div>
+      </span>
+      <span class="splash-dot">&middot;</span>
+      <a href="contact.html">Contact Us</a>
+      <span class="splash-dot">&middot;</span>
+      <a href="testimonials.html">Testimonials</a>
+      <span class="splash-dot">&middot;</span>
+      <a href="about.html">About</a>
+    </nav>
+
+    <!-- Tagline in the middle -->
+    <div class="splash-tagline-wrap">
+      <p class="splash-tagline">Event Photography &nbsp;.&nbsp;.&nbsp;. &nbsp;and more</p>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       FEATURED WORK (dark section below)
+       ============================================================ -->
+  <div class="home-intro">
+    <p class="section-label">Welcome</p>
+    <h2 class="home-intro-title">Moments in Light</h2>
+    <p class="home-intro-text">
+      From the soaring birds of Dominica to the joyful energy of community celebrations,
+      every photograph is an invitation to see the world with fresh eyes.
+    </p>
+  </div>
+
+  <div class="container">
+    <p class="section-label">Featured Work</p>
+    <div class="section-rule"></div>
+
+    <div class="featured-grid">
+      <div class="featured-item">
+        <img src="photos/wildlife/birding/DSC05816.jpg" alt="Bird in flight" loading="lazy">
+      </div>
+      <div class="featured-item">
+        <img src="photos/events/shabbat-shira/DSC00736-DxO_DeepPRIME-XD2s-2.jpg" alt="Shabbat Shira" loading="lazy">
+      </div>
+      <div class="featured-item">
+        <img src="photos/wildlife/birding/DSC05321.jpg" alt="Birding" loading="lazy">
+      </div>
+      <div class="featured-item">
+        <img src="photos/events/shabbat-shira/DSC00991-DxO_DeepPRIME-XD2s-2.jpg" alt="Shabbat Shira" loading="lazy">
+      </div>
+      <div class="featured-item">
+        <img src="photos/wildlife/birding/DSC06162.jpg" alt="Wildlife" loading="lazy">
+      </div>
+    </div>
+
+    <div class="section" style="display:grid; grid-template-columns:1fr 1fr; gap:20px; padding-top:60px;">
+
+      <a href="events.html" class="card">
+        <div class="card-img-wrap">
+          <img src="photos/events/shabbat-shira/DSC09892-DxO_DeepPRIME-XD2s-2.jpg" alt="Events" loading="lazy">
+          <div class="card-shade"></div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Events</h3>
+          <p class="card-meta">View galleries</p>
+        </div>
+        <div class="card-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </div>
+      </a>
+
+      <a href="wildlife.html" class="card">
+        <div class="card-img-wrap">
+          <img src="photos/wildlife/birding/DSC04892.jpg" alt="Wildlife" loading="lazy">
+          <div class="card-shade"></div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Wildlife</h3>
+          <p class="card-meta">View galleries</p>
+        </div>
+        <div class="card-arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <span class="footer-logo">Steven Snyder <em>Photography</em></span>
+    <span class="footer-copy">&copy; <span id="yr"></span> Steven Snyder · All rights reserved</span>
+  </footer>
+
+  <script src="js/gallery.js"></script>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

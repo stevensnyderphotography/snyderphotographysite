@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonials — Steven Snyder Photography</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-testimonials">
+
+  <nav class="nav" id="main-nav">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="Steven Snyder Photography" class="nav-logo-img">
+    </a>
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="expertise.html"    class="nav-link">Expertise</a></li>
+      <li class="nav-item">
+        <a href="events.html" class="nav-link">Portfolio</a>
+        <ul class="nav-dropdown">
+          <li><a href="events.html">Events</a></li>
+          <li><a href="wildlife.html">Wildlife</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="contact.html"      class="nav-link">Contact Us</a></li>
+      <li class="nav-item"><a href="testimonials.html" class="nav-link active">Testimonials</a></li>
+      <li class="nav-item"><a href="about.html"        class="nav-link">About</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header-plain container">
+    <p class="page-eyebrow">Kind words</p>
+    <h1 class="page-title">Testimonials</h1>
+  </div>
+
+  <main class="container">
+    <div class="contact-wrap">
+      <!-- ADD TESTIMONIALS HERE. Copy the block below for each new one. -->
+
+      <div class="contact-row" style="display:block; padding: 32px 0;">
+        <p style="font-family: Georgia, serif; font-size: 1.1rem; font-style: italic; color: var(--text); line-height: 1.8; margin-bottom: 16px;">
+          "Add your first testimonial here."
+        </p>
+        <p style="font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);">
+          — Name, Organization
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span class="footer-logo">Steven Snyder <em>Photography</em></span>
+    <span class="footer-copy">&copy; <span id="yr"></span> Steven Snyder · All rights reserved</span>
+  </footer>
+
+  <script src="js/gallery.js"></script>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

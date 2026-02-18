@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wildlife — Steven Snyder Photography</title>
+  <meta name="description" content="Wildlife photography galleries by Steven Snyder.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-wildlife">
+
+    <nav class="nav" id="main-nav">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="Steven Snyder Photography" class="nav-logo-img">
+    </a>
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="expertise.html"    class="nav-link">Expertise</a></li>
+      <li class="nav-item">
+        <a href="events.html" class="nav-link">Portfolio</a>
+        <ul class="nav-dropdown">
+          <li><a href="events.html">Events</a></li>
+          <li><a href="wildlife.html">Wildlife</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="contact.html"      class="nav-link">Contact Us</a></li>
+      <li class="nav-item"><a href="testimonials.html" class="nav-link">Testimonials</a></li>
+      <li class="nav-item"><a href="about.html"        class="nav-link">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="page-header-bg"
+         style="background-image: url('photos/wildlife/birding/DSC05233.jpg');"></div>
+    <div class="page-header-content">
+      <p class="page-eyebrow">Photography</p>
+      <h1 class="page-title">Wildlife</h1>
+      <p class="page-desc">Nature, birds, and the wild world</p>
+    </div>
+  </header>
+
+  <!-- Gallery Cards -->
+  <main class="container">
+    <div class="section">
+      <div class="cards-grid">
+
+        <!-- ============================================================
+             TO ADD A NEW WILDLIFE GALLERY:
+             1. Create a new page: wildlife/your-category.html
+             2. Copy the template from wildlife/birding.html
+             3. Add your photos to photos/wildlife/your-category/
+             4. Duplicate the <a class="card"> block below and update links
+             ============================================================ -->
+
+        <a href="wildlife/birding.html" class="card">
+          <div class="card-img-wrap">
+            <img src="photos/wildlife/birding/DSC05795.jpg"
+                 alt="Birding" loading="lazy">
+            <div class="card-shade"></div>
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Birding</h2>
+            <p class="card-meta">15 photos · Birds of Dominica</p>
+          </div>
+          <div class="card-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span class="footer-logo">Steven Snyder <em>Photography</em></span>
+    <span class="footer-copy">&copy; <span id="yr"></span> Steven Snyder · All rights reserved</span>
+  </footer>
+
+  <script src="js/gallery.js"></script>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
