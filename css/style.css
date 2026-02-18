@@ -606,8 +606,10 @@ ul  { list-style: none; }
 .splash-nav {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 18px;
   margin-top: 12px;
+  width: clamp(480px, 65vw, 1000px);
 }
 
 .splash-nav a {
