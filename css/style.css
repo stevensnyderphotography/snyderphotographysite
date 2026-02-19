@@ -968,6 +968,8 @@ ul  { list-style: none; }
     width: auto;
   }
   .splash-dot { display: none; }
+  /* Remove dropdown from layout so Portfolio item is same height as other links */
+  .splash-dropdown { display: none; }
 }
 
 @media (max-width: 400px) {
