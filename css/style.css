@@ -968,7 +968,8 @@ ul  { list-style: none; }
     width: auto;
   }
   .splash-dot { display: none; }
-  /* Remove dropdown from layout so Portfolio item is same height as other links */
+  /* Make the Portfolio wrapper span invisible to flex layout */
+  .splash-dropdown-wrap { display: contents; }
   .splash-dropdown { display: none; }
 }
 
