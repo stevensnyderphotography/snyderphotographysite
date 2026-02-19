@@ -19,6 +19,43 @@
   }
 })();
 
+/* ---- Mobile navigation hamburger ---- */
+(function initMobileNav() {
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
+  const menu = nav.querySelector('.nav-menu');
+  if (!menu) return;
+
+  const toggle = document.createElement('button');
+  toggle.className = 'nav-toggle';
+  toggle.setAttribute('aria-label', 'Toggle navigation');
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.innerHTML =
+    '<span class="nav-toggle-bar"></span>' +
+    '<span class="nav-toggle-bar"></span>' +
+    '<span class="nav-toggle-bar"></span>';
+  nav.appendChild(toggle);
+
+  function close() {
+    menu.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  toggle.addEventListener('click', e => {
+    e.stopPropagation();
+    const isOpen = menu.classList.toggle('open');
+    toggle.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', close));
+
+  document.addEventListener('click', e => {
+    if (!nav.contains(e.target)) close();
+  });
+})();
+
 /* ---- Hero: subtle zoom-in on load ---- */
 (function initHero() {
   const bg = document.querySelector('.hero-bg');

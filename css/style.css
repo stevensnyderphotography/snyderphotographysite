@@ -841,6 +841,47 @@ ul  { list-style: none; }
 }
 
 /* ============================================================
+   HAMBURGER TOGGLE (mobile only — shown via media query)
+   ============================================================ */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 0;
+  flex-shrink: 0;
+}
+.nav-toggle:hover { color: var(--text); }
+.nav-toggle-bar {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+.nav-toggle.open .nav-toggle-bar:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-toggle.open .nav-toggle-bar:nth-child(2) { opacity: 0; }
+.nav-toggle.open .nav-toggle-bar:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ============================================================
+   HOME CARDS GRID (replaces inline style on index.html)
+   ============================================================ */
+.home-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding-top: 60px;
+}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 900px) {
@@ -857,15 +898,75 @@ ul  { list-style: none; }
 }
 
 @media (max-width: 640px) {
+  /* Reduce nav height */
+  :root { --nav-h: 68px; }
+  .nav { padding: 0 20px; }
+  .nav-logo-img { height: 52px; }
   .nav-logo { font-size: 0.78rem; letter-spacing: 0.12em; }
+
+  /* Show hamburger, hide horizontal menu */
+  .nav-toggle { display: flex; }
+  .nav-menu {
+    display: none;
+    position: fixed;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    z-index: 8998;
+    overflow-y: auto;
+    max-height: calc(100vh - var(--nav-h));
+  }
+  .nav-menu.open { display: flex; }
+  .nav-item { border-bottom: 1px solid var(--border); }
+  .nav-link { height: 52px; line-height: 52px; padding: 0 24px; }
+
+  /* Show Portfolio sub-links inline in mobile menu */
+  .nav-menu.open .nav-item .nav-dropdown {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    border: none;
+    min-width: auto;
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .nav-menu.open .nav-dropdown li a { padding-left: 36px; }
+
+  /* Splash — fix overflow on phones */
+  .splash { padding: 5vh 20px 6vh; }
+  .splash-logo,
+  .splash-nav { width: min(90vw, 1000px); }
+
+  /* Home page */
+  .home-intro { padding: 60px 24px 50px; }
+  .home-cards-grid { grid-template-columns: 1fr; }
+
+  /* Grids */
   .cards-grid { grid-template-columns: 1fr; }
   .gallery-grid { columns: 2; }
   .featured-grid {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(5, 220px);
   }
+
   .footer { flex-direction: column; gap: 12px; text-align: center; }
   .hero-title { letter-spacing: 0.16em; }
+}
+
+@media (max-width: 480px) {
+  /* Wrap splash nav links instead of overflowing */
+  .splash-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 20px;
+  }
+  .splash-dot { display: none; }
 }
 
 @media (max-width: 400px) {
