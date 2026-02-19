@@ -960,11 +960,12 @@ ul  { list-style: none; }
 }
 
 @media (max-width: 480px) {
-  /* Wrap splash nav links instead of overflowing */
+  /* Stack splash nav links vertically */
   .splash-nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    width: auto;
   }
   .splash-dot { display: none; }
 }
