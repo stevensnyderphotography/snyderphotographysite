@@ -14,6 +14,7 @@
   --accent:       #c8a96e;
   --accent-dim:   rgba(200, 169, 110, 0.12);
   --nav-h:        220px;
+  --inner-nav-h:  100px;
   --ease:         cubic-bezier(0.4, 0, 0.2, 1);
   --trans:        0.3s var(--ease);
 }
@@ -146,6 +147,120 @@ ul  { list-style: none; }
 }
 
 /* ============================================================
+   SITE HEADER (interior pages — black bg + photo backdrop +
+   white logo + nav links)
+   ============================================================ */
+.site-header {
+  position: relative;
+  width: 100%;
+  background: #000;
+  overflow: hidden;
+  height: 432px;
+}
+
+.site-header-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center top;
+  opacity: 0.35;
+}
+
+.site-header-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 52px;
+}
+
+.site-header-logo-wrap {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.site-header-logo {
+  height: 416px;
+  width: auto;
+  display: block;
+}
+
+.site-header-nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.site-header-nav a {
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0 16px;
+  transition: color 0.2s ease;
+}
+
+.site-header-nav a:hover { color: rgba(255, 255, 255, 0.65); }
+
+.site-header-dot {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.78rem;
+}
+
+/* ============================================================
+   PAGE HERO — unified bg spanning site-header + page title
+   ============================================================ */
+.page-hero {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.60);
+  z-index: 1;
+}
+
+.page-hero .site-header {
+  background: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+.page-hero .site-header-bg { display: none; }
+
+.page-hero .page-header {
+  position: relative;
+  z-index: 2;
+}
+
+.page-hero .page-header-bg { display: none; }
+
+.page-hero .site-header {
+  height: 332px;
+}
+
+.page-hero .site-header-logo {
+  height: 316px;
+}
+
+.page-hero .page-header {
+  min-height: 180px;
+}
+
+.page-hero .page-header-content {
+  padding-top: 16px;
+}
+
+/* ============================================================
    HERO
    ============================================================ */
 .hero {
@@ -275,7 +390,7 @@ ul  { list-style: none; }
 .page-header-content {
   position: relative;
   text-align: center;
-  padding: calc(var(--nav-h) + 60px) 32px 52px;
+  padding: 60px 32px 52px;
   width: 100%;
 }
 .page-eyebrow {
@@ -302,7 +417,7 @@ ul  { list-style: none; }
 
 /* Simple header (no background image) */
 .page-header-plain {
-  padding-top: calc(var(--nav-h) + 72px);
+  padding-top: 72px;
   padding-bottom: 52px;
   text-align: center;
 }
@@ -583,15 +698,34 @@ ul  { list-style: none; }
    SPLASH (home page white section)
    ============================================================ */
 .splash {
+  position: relative;
   min-height: 100vh;
   background: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 6vh 40px 8vh;
+  overflow: hidden;
+}
+
+.splash-backdrop {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center top;
+  z-index: 0;
+}
+
+.splash-backdrop-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.62);
+  z-index: 1;
 }
 
 .splash-logo-wrap {
+  position: relative;
+  z-index: 2;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -604,6 +738,8 @@ ul  { list-style: none; }
 }
 
 .splash-nav {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -612,10 +748,10 @@ ul  { list-style: none; }
 }
 
 .splash-nav a {
-  font-size: 0.78rem;
+  font-size: 1.56rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #333;
+  color: #111;
   transition: color 0.2s ease;
 }
 
@@ -663,10 +799,12 @@ ul  { list-style: none; }
 
 .splash-dot {
   color: #aaa;
-  font-size: 1rem;
+  font-size: 1.56rem;
 }
 
 .splash-tagline-wrap {
+  position: relative;
+  z-index: 2;
   flex: 1;
   display: flex;
   align-items: center;
