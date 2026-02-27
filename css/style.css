@@ -244,11 +244,15 @@ ul  { list-style: none; }
 
 .page-hero .page-header-bg { display: none; }
 
-.page-hero .site-header {
+.page-hero .site-header,
+.page-about .site-header,
+.page-contact .site-header {
   height: 332px;
 }
 
-.page-hero .site-header-logo {
+.page-hero .site-header-logo,
+.page-about .site-header-logo,
+.page-contact .site-header-logo {
   height: 316px;
 }
 
