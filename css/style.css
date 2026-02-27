@@ -1080,7 +1080,9 @@ ul  { list-style: none; }
   }
   .site-header-logo,
   .page-hero .site-header-logo {
-    height: 120px !important;
+    height: 180px !important;
+    max-width: 90vw;
+    width: auto;
   }
   .site-header-nav {
     margin-left: 0 !important;
