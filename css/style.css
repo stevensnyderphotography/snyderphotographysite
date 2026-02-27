@@ -1062,7 +1062,7 @@ ul  { list-style: none; }
   .page-hero .site-header {
     height: auto !important;
     min-height: 0;
-    padding: 20px 0 14px;
+    padding: 12px 0 8px;
     overflow: visible;
   }
   .site-header-content {
@@ -1071,7 +1071,7 @@ ul  { list-style: none; }
     align-items: center;
     height: auto !important;
     padding: 0 20px;
-    gap: 14px;
+    gap: 8px;
   }
   .site-header-logo-wrap {
     position: static !important;
@@ -1104,9 +1104,9 @@ ul  { list-style: none; }
     padding: 10px 20px 20px;
   }
 
-  /* Wildlife page — bird faces right; shift left so tail and beak both fit */
+  /* Wildlife page — bird faces right; shift so tail and beak both fit */
   .page-wildlife .page-hero {
-    background-position: 15% center;
+    background-position: 17% center;
   }
 
   /* Show hamburger, hide horizontal menu */
