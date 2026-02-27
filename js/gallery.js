@@ -120,6 +120,13 @@ class Gallery {
       item.appendChild(img);
       item.appendChild(overlay);
 
+      if (photo.caption) {
+        const cap = document.createElement('div');
+        cap.className = 'gallery-item-caption';
+        cap.textContent = photo.caption;
+        item.appendChild(cap);
+      }
+
       const open = () => this._open(i);
       item.addEventListener('click', open);
       item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') open(); });
@@ -253,5 +260,22 @@ class Gallery {
   /* ---------- Helpers ---------- */
   _label(file) {
     return file.replace(/\.[^/.]+$/, '').replace(/[-_]+/g, ' ').trim();
+  }
+
+  /* ---------- Async loader — fetches titles.json then renders ---------- */
+  static async load(containerId, photos, basePath) {
+    let titles = {};
+    try {
+      const r = await fetch(basePath.replace(/\/$/, '') + '/titles.json');
+      if (r.ok) titles = await r.json();
+    } catch(e) { /* no titles.json — use inline captions */ }
+
+    const merged = photos.map(p => {
+      const f      = typeof p === 'string' ? p : p.file;
+      const inline = typeof p === 'string' ? '' : (p.caption || '');
+      return { file: f, caption: titles[f] !== undefined ? titles[f] : inline };
+    });
+
+    return new Gallery(containerId, merged, basePath);
   }
 }

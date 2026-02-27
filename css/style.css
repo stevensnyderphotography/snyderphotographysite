@@ -580,6 +580,21 @@ ul  { list-style: none; }
 .gallery-item:hover .gallery-item-overlay {
   background: rgba(0,0,0,0.28);
 }
+
+.gallery-item-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 14px 10px;
+  background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 100%);
+  color: #fff;
+  font-size: 0.78rem;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  text-align: center;
+  pointer-events: none;
+}
 .gallery-zoom {
   opacity: 0;
   color: rgba(255,255,255,0.9);
