@@ -1096,6 +1096,11 @@ ul  { list-style: none; }
   }
   .site-header-dot { display: none; }
 
+  /* Wildlife page — shift background right so bird's beak stays visible */
+  .page-wildlife .page-hero {
+    background-position: 70% center;
+  }
+
   /* Show hamburger, hide horizontal menu */
   .nav-toggle { display: flex; }
   .nav-menu {
