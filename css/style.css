@@ -1080,7 +1080,7 @@ ul  { list-style: none; }
   }
   .site-header-logo,
   .page-hero .site-header-logo {
-    height: 180px !important;
+    height: 150px !important;
     max-width: 90vw;
     width: auto;
   }
@@ -1096,9 +1096,17 @@ ul  { list-style: none; }
   }
   .site-header-dot { display: none; }
 
-  /* Wildlife page — center on bird's body to keep tail and beak visible */
+  /* Shrink the page-header on mobile to reduce hero height and horizontal crop */
+  .page-hero .page-header {
+    min-height: 80px;
+  }
+  .page-hero .page-header-content {
+    padding: 10px 20px 20px;
+  }
+
+  /* Wildlife page — bird faces right; shift left so tail and beak both fit */
   .page-wildlife .page-hero {
-    background-position: 55% center;
+    background-position: 20% center;
   }
 
   /* Show hamburger, hide horizontal menu */
