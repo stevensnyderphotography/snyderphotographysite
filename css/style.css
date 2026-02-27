@@ -1080,7 +1080,7 @@ ul  { list-style: none; }
   }
   .site-header-logo,
   .page-hero .site-header-logo {
-    height: 150px !important;
+    height: 130px !important;
     max-width: 90vw;
     width: auto;
   }
@@ -1106,7 +1106,7 @@ ul  { list-style: none; }
 
   /* Wildlife page — bird faces right; shift left so tail and beak both fit */
   .page-wildlife .page-hero {
-    background-position: 20% center;
+    background-position: 15% center;
   }
 
   /* Show hamburger, hide horizontal menu */
