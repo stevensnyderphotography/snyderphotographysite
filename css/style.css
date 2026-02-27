@@ -1057,6 +1057,43 @@ ul  { list-style: none; }
   .nav-logo-img { height: 52px; }
   .nav-logo { font-size: 0.78rem; letter-spacing: 0.12em; }
 
+  /* Site header (interior pages) — stack logo above nav on mobile */
+  .site-header,
+  .page-hero .site-header {
+    height: auto !important;
+    min-height: 0;
+    padding: 20px 0 14px;
+    overflow: visible;
+  }
+  .site-header-content {
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+    height: auto !important;
+    padding: 0 20px;
+    gap: 14px;
+  }
+  .site-header-logo-wrap {
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+  }
+  .site-header-logo,
+  .page-hero .site-header-logo {
+    height: 120px !important;
+  }
+  .site-header-nav {
+    margin-left: 0 !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+  }
+  .site-header-nav a {
+    padding: 4px 10px;
+    font-size: 0.65rem;
+  }
+  .site-header-dot { display: none; }
+
   /* Show hamburger, hide horizontal menu */
   .nav-toggle { display: flex; }
   .nav-menu {
