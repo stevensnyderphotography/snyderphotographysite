@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — Steven Snyder Photography</title>
-  <meta name="description" content="Contact Steven Snyder Photography.">
-  <link rel="stylesheet" href="css/style.css">
+  <title>Request a Quote — Steven Snyder Photography</title>
+  <meta name="description" content="Request a quote from Steven Snyder Photography.">
+  <link rel="stylesheet" href="css/style.css?v=30">
 </head>
 <body class="page-contact">
 
@@ -16,76 +16,91 @@
           <img src="assets/logo-white.png" alt="Steven Snyder Photography" class="site-header-logo">
         </a>
       </div>
-      <nav class="site-header-nav">
-        <a href="events.html">Events</a>
-        <span class="site-header-dot">&middot;</span>
-        <a href="contact.html">Contact</a>
-        <span class="site-header-dot">&middot;</span>
-        <a href="about.html">About</a>
-        <span class="site-header-dot">&middot;</span>
-        <a href="https://www.facebook.com/profile.php?id=61588590369119" target="_blank" rel="noopener">Facebook</a>
-        <span class="site-header-dot">&middot;</span>
-        <a href="https://www.instagram.com/stevensnyderphotography/?hl=en" target="_blank" rel="noopener">Instagram</a>
-      </nav>
     </div>
   </header>
 
-  <!-- Header -->
-  <div class="page-header-plain container">
-    <p class="page-eyebrow">Get in touch</p>
-    <h1 class="page-title">Contact</h1>
-  </div>
-
-  <!-- Contact content -->
   <main class="container">
     <div class="contact-wrap">
 
       <p class="contact-intro">
-        Interested in prints, licensing, or booking for an event?
-        I'd love to hear from you. Reach out through any of the channels below.
+        Reach out for a quote or more information
       </p>
 
-      <!-- ============================================================
-           UPDATE YOUR CONTACT DETAILS BELOW
-           ============================================================ -->
+      <form class="quote-form" name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/contact.html?sent=true">
+        <input type="hidden" name="form-name" value="quote-request">
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
 
-      <div class="contact-row">
-        <span class="contact-label">Telephone</span>
-        <span class="contact-value">
-          <a href="tel:+12027447840">(202) 744-7840</a>
-        </span>
+        <div class="quote-field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your full name">
+        </div>
+
+        <div class="quote-field">
+          <label for="location">Location</label>
+          <input type="text" id="location" name="location" placeholder="City, state or venue">
+        </div>
+
+        <div class="quote-field">
+          <label for="telephone">Telephone</label>
+          <input type="tel" id="telephone" name="telephone" placeholder="(000) 000-0000">
+        </div>
+
+        <div class="quote-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="your@email.com">
+        </div>
+
+        <div class="quote-field">
+          <label for="photography-type">Event Details</label>
+          <textarea id="photography-type" name="photography-type" rows="4" placeholder="Date, venue, organization, estimated attendance, and any special requirements."></textarea>
+        </div>
+
+        <div class="quote-submit">
+          <button type="submit" class="quote-btn">Send Inquiry</button>
+        </div>
+      </form>
+
+      <!-- Sent confirmation -->
+      <div class="quote-sent" id="quote-sent" style="display:none;">
+        <p>Thank you — your message has been sent. I'll be in touch shortly.</p>
       </div>
 
-      <div class="contact-row">
-        <span class="contact-label">Email</span>
-        <span class="contact-value">
-          <a href="mailto:Steve@StevenSnyderPhotography.com">
-            Steve@StevenSnyderPhotography.com
-          </a>
-        </span>
+      <!-- Contact details -->
+      <div class="quote-contact-info">
+        <div class="contact-row">
+          <span class="contact-label">Telephone</span>
+          <span class="contact-value"><a href="tel:+12027447840">(202) 744-7840</a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Email</span>
+          <span class="contact-value"><a href="mailto:Steve@StevenSnyderPhotography.com">Steve@StevenSnyderPhotography.com</a></span>
+        </div>
       </div>
-
-      <div class="contact-row">
-        <span class="contact-label">Location</span>
-        <span class="contact-value">Washington, D.C. area</span>
-      </div>
-
-      <!-- Add or remove rows as needed. Pattern:
-      <div class="contact-row">
-        <span class="contact-label">Label</span>
-        <span class="contact-value">Value (or <a href="...">linked value</a>)</span>
-      </div>
-      -->
 
     </div>
   </main>
 
-  <footer class="footer">
-    <span class="footer-logo">Steven Snyder <em>Photography</em></span>
-    <span class="footer-copy">&copy; <span id="yr"></span> Steven Snyder · All rights reserved</span>
+  <footer class="home-footer">
+    <a href="https://www.flickr.com/photos/203197420@N04/collections/72157724508147626/" target="_blank" rel="noopener">Full Galleries on Flickr</a>
+    <span class="home-footer-dot">&middot;</span>
+    <a href="https://www.facebook.com/profile.php?id=61588590369119" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <span class="home-footer-dot">&middot;</span>
+    <a href="https://www.instagram.com/stevensnyderphotography/?hl=en" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
+    <span class="home-footer-dot">&middot;</span>
+    <a href="about.html">About</a>
   </footer>
 
   <script src="js/gallery.js"></script>
-  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+  <script>
+    // Show confirmation if returned from Netlify with ?sent=true
+    if (window.location.search.includes('sent=true')) {
+      document.querySelector('.quote-form').style.display = 'none';
+      document.getElementById('quote-sent').style.display = 'block';
+    }
+  </script>
 </body>
 </html>

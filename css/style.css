@@ -251,9 +251,11 @@ ul  { list-style: none; }
 }
 
 .page-hero .site-header-logo,
-.page-about .site-header-logo,
-.page-contact .site-header-logo {
+.page-about .site-header-logo {
   height: 316px;
+}
+.page-contact .site-header-logo {
+  height: 521px;
 }
 
 .page-hero .page-header {
@@ -723,7 +725,7 @@ ul  { list-style: none; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 6vh 40px 8vh;
+  padding: 0 40px 8vh;
   overflow: hidden;
 }
 
@@ -738,7 +740,12 @@ ul  { list-style: none; }
 .splash-backdrop-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.62);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.45) 0%,
+    rgba(0, 0, 0, 0.35) 50%,
+    rgba(0, 0, 0, 0.22) 100%
+  );
   z-index: 1;
 }
 
@@ -748,10 +755,11 @@ ul  { list-style: none; }
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-top: -1rem;
 }
 
 .splash-logo {
-  width: clamp(480px, 65vw, 1000px);
+  width: clamp(456px, 61.75vw, 950px);
   height: auto;
   display: block;
 }
@@ -770,11 +778,12 @@ ul  { list-style: none; }
   font-size: 1.56rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #111;
+  font-weight: 700;
+  color: #fff;
   transition: color 0.2s ease;
 }
 
-.splash-nav a:hover { color: #000; }
+.splash-nav a:hover { color: #ccc; }
 
 .splash-dropdown-wrap {
   position: relative;
@@ -817,27 +826,111 @@ ul  { list-style: none; }
 .splash-dropdown a:hover { background: #f5f5f5; color: #000; }
 
 .splash-dot {
-  color: #aaa;
+  color: rgba(255,255,255,0.6);
   font-size: 1.56rem;
 }
 
 .splash-tagline-wrap {
   position: relative;
   z-index: 2;
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: -1.8rem;
+}
+
+.splash-cta-wrap {
+  position: relative;
+  z-index: 2;
+  margin-top: 14.6rem;
+  text-align: center;
+}
+.splash-cta {
+  display: inline-block;
+  padding: 12px 36px;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  color: #fff;
+  font-size: 0.82rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.splash-cta:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: #111;
+  border-color: transparent;
 }
 
 .splash-tagline {
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(1.4rem, 2.8vw, 2.4rem);
+  font-size: clamp(1.525rem, 3.05vw, 2.615rem);
   font-weight: 400;
   font-style: italic;
-  color: #222;
+  color: #fff;
   letter-spacing: 0.04em;
+  line-height: 1.25;
   text-align: center;
+}
+
+/* ============================================================
+   HOME PAGE — Gallery grid override (3×2 fixed grid)
+   ============================================================ */
+.page-home .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  column-gap: 3px;
+}
+.page-home .gallery-item {
+  margin-bottom: 0;
+  break-inside: unset;
+}
+.page-home .gallery-item img {
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  object-position: top center;
+  width: 100%;
+  height: auto;
+}
+/* Vertical photos — show full image with black fill */
+.page-home .gallery-item:nth-child(2) img,
+.page-home .gallery-item:nth-child(3) img {
+  object-fit: contain;
+  background: #000;
+}
+
+/* ============================================================
+   HOME FOOTER
+   ============================================================ */
+.home-footer {
+  background: #000;
+  padding: 22px 32px;
+  text-align: center;
+  border-top: 1px solid #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+.home-footer a {
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d8d8d8;
+  text-decoration: none;
+  padding: 4px 8px;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+.home-footer a:hover { color: #fff; }
+.home-footer-dot {
+  color: rgba(255,255,255,0.3);
+  font-size: 0.9rem;
+  padding: 0 2px;
 }
 
 /* ============================================================
@@ -907,17 +1000,9 @@ ul  { list-style: none; }
   object-position: top center;
   display: block;
 }
-/* Per-image position tweaks */
-.home-gallery-grid img:nth-child(3),
-.home-gallery-grid img:nth-child(4) { object-position: center 4%; }
-
-/* Images 2 & 7 — show full image, no crop */
+/* Vertical photos — show full image with black fill */
 .home-gallery-grid img:nth-child(2),
-.home-gallery-grid img:nth-child(7) { object-fit: contain; background: #000; }
-
-/* Center the 2-photo last row */
-.home-gallery-grid img:nth-child(7) { grid-column: 2 / 4; }
-.home-gallery-grid img:nth-child(8) { grid-column: 4 / 6; }
+.home-gallery-grid img:nth-child(3) { object-fit: contain; background: #000; }
 
 /* ============================================================
    ABOUT PAGE
@@ -965,9 +1050,12 @@ ul  { list-style: none; }
   padding: 52px 0 100px;
 }
 .contact-intro {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  line-height: 1.9;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.25rem, 3.125vw, 2rem);
+  font-weight: 400;
+  color: var(--text);
+  white-space: nowrap;
+  margin-top: 60px;
   margin-bottom: 52px;
 }
 .contact-row {
@@ -979,7 +1067,7 @@ ul  { list-style: none; }
 }
 .contact-row:first-of-type { border-top: 1px solid var(--border); }
 .contact-label {
-  font-size: 0.65rem;
+  font-size: 0.8125rem;
   letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--accent);
@@ -987,10 +1075,85 @@ ul  { list-style: none; }
   flex-shrink: 0;
 }
 .contact-value {
-  font-size: 0.9rem;
+  font-size: 1.125rem;
   color: var(--text);
 }
 .contact-value a:hover { color: var(--accent); }
+
+/* ============================================================
+   QUOTE FORM
+   ============================================================ */
+.quote-form {
+  margin-bottom: 52px;
+}
+.quote-field {
+  margin-bottom: 28px;
+}
+.quote-field label {
+  display: block;
+  font-size: 0.975rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #f2f2f2;
+  margin-bottom: 8px;
+}
+.quote-field input,
+.quote-field textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  padding: 8px 0;
+  font-size: 1.8rem;
+  color: var(--text);
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+.quote-field input:focus,
+.quote-field textarea:focus {
+  border-bottom-color: var(--accent);
+  color: #ffffff;
+}
+.quote-field input::placeholder,
+.quote-field textarea::placeholder {
+  color: var(--text-subtle);
+}
+.quote-field textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+.quote-submit {
+  margin-top: 36px;
+}
+.quote-btn {
+  background: transparent;
+  border: 2px solid var(--text);
+  color: var(--text);
+  font-size: 1.23rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 27px 84px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.quote-btn:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+.quote-sent {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.9;
+  margin-bottom: 52px;
+}
+.quote-contact-info {
+  margin-top: 52px;
+  border-top: 1px solid var(--border);
+}
 
 /* ============================================================
    FOOTER
