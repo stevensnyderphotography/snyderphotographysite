@@ -888,6 +888,38 @@ ul  { list-style: none; }
 }
 
 /* ============================================================
+   HOME GALLERY GRID
+   ============================================================ */
+.home-gallery {
+  background: #000;
+  padding: 3px 0 0;
+}
+.home-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 3px;
+}
+.home-gallery-grid img {
+  grid-column: span 2;
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+/* Per-image position tweaks */
+.home-gallery-grid img:nth-child(3),
+.home-gallery-grid img:nth-child(4) { object-position: center 4%; }
+
+/* Images 2 & 7 — show full image, no crop */
+.home-gallery-grid img:nth-child(2),
+.home-gallery-grid img:nth-child(7) { object-fit: contain; background: #000; }
+
+/* Center the 2-photo last row */
+.home-gallery-grid img:nth-child(7) { grid-column: 2 / 4; }
+.home-gallery-grid img:nth-child(8) { grid-column: 4 / 6; }
+
+/* ============================================================
    ABOUT PAGE
    ============================================================ */
 .about-layout {
