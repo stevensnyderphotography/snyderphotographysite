@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Events — Steven Snyder Photography</title>
-  <meta name="description" content="Event photography galleries by Steven Snyder.">
+  <meta name="description" content="Event photography by Steven Snyder.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="page-events">
 
-  <div class="page-hero" style="background-image: url('photos/events/celebrations/DSC09724-DxO_DeepPRIME-XD2s-2.jpg');">
+  <div class="page-hero" style="background-image: url('photos/events/DSC00304-DxO_DeepPRIME-XD2s-2.jpg');">
     <header class="site-header">
       <div class="site-header-content">
         <div class="site-header-logo-wrap">
@@ -19,8 +19,6 @@
         </div>
         <nav class="site-header-nav">
           <a href="events.html">Events</a>
-          <span class="site-header-dot">&middot;</span>
-          <a href="wildlife.html">Wildlife</a>
           <span class="site-header-dot">&middot;</span>
           <a href="contact.html">Contact</a>
           <span class="site-header-dot">&middot;</span>
@@ -41,39 +39,11 @@
     </header>
   </div>
 
-  <!-- Gallery Cards -->
+  <!-- Gallery -->
   <main class="container">
-    <div class="section">
-      <div class="cards-grid">
-
-        <!-- ============================================================
-             TO ADD A NEW EVENT GALLERY:
-             1. Create a new folder: events/your-event-name.html
-             2. Copy the gallery page template from events/celebrations.html
-             3. Add your photos to photos/events/your-event-name/
-             4. Duplicate the <a class="card"> block below and update the links
-             ============================================================ -->
-
-        <a href="events/celebrations.html" class="card">
-          <div class="card-img-wrap">
-            <img src="photos/events/celebrations/DSC00538-DxO_DeepPRIME-XD2s-2.jpg"
-                 alt="Shabbat Shira" loading="lazy">
-            <div class="card-shade"></div>
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">Celebrations</h2>
-            <p class="card-meta">10 photos · Celebrations</p>
-          </div>
-          <div class="card-arrow">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round">
-              <line x1="5" y1="12" x2="19" y2="12"/>
-              <polyline points="12 5 19 12 12 19"/>
-            </svg>
-          </div>
-        </a>
-
-      </div>
+    <div class="gallery-wrap">
+      <p class="gallery-count" id="gallery-count"></p>
+      <div id="gallery-container"></div>
     </div>
   </main>
 
@@ -83,6 +53,27 @@
   </footer>
 
   <script src="js/gallery.js"></script>
-  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+  <script>
+    const PHOTOS = [
+      'DSC00304-DxO_DeepPRIME-XD2s-2.jpg',
+      'DSC00538-DxO_DeepPRIME-XD2s-2.jpg',
+      'DSC00991-DxO_DeepPRIME-XD2s-2.jpg',
+      'DSC02833.jpg',
+      'DSC04300.jpg',
+      'DSC04891.jpg',
+      'DSC06069.jpg',
+      'DSC06779.jpg',
+      'DSC06862.jpg',
+      'DSC07510.jpg',
+    ];
+
+    const PHOTOS_PATH = 'photos/events';
+
+    Gallery.load('gallery-container', PHOTOS, PHOTOS_PATH);
+
+    document.getElementById('gallery-count').textContent =
+      PHOTOS.length + ' photographs';
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
