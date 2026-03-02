@@ -1429,17 +1429,6 @@ body.page-about {
   .splash { padding: 5vh 20px 6vh; }
   .splash-logo,
   .splash-nav { width: min(90vw, 1000px); }
-  .splash-tagline {
-    font-size: clamp(1.5rem, 5.5vw, 2.2rem);
-    line-height: 1.4;
-  }
-  .splash-cta {
-    font-size: 1.2rem;
-    padding: 16px 36px;
-    border-width: 3px;
-    letter-spacing: 0.15em;
-  }
-  .splash-cta-wrap { margin-top: calc(2rem + 8vh); }
 
   /* Home page */
   .home-intro { padding: 60px 24px 50px; }
@@ -1455,36 +1444,6 @@ body.page-about {
 
   .footer { flex-direction: column; gap: 12px; text-align: center; }
   .hero-title { letter-spacing: 0.16em; }
-
-  /* Home footer */
-  .home-footer { padding: 24px 16px; }
-  .home-footer a { font-size: 0.75rem; padding: 4px 8px; }
-  .home-footer a svg { width: 22px; height: 22px; }
-  .home-footer-dot { font-size: 0.75rem; padding: 0 2px; }
-
-  /* About page — restore left padding when layout stacks */
-  .page-about main { padding: 20px; }
-
-  /* Contact / Quote page */
-  .contact-intro,
-  .contact-subtitle {
-    font-size: clamp(1.2rem, 4.5vw, 1.8rem);
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-  .page-contact .contact-wrap { padding: 5% 20px 0; }
-  .quote-field { margin-bottom: 24px; }
-  .quote-field label { font-size: 0.75rem; }
-  .quote-field input,
-  .quote-field textarea { font-size: 1.1rem; }
-  .quote-btn {
-    font-size: 1rem;
-    padding: 16px 32px;
-    letter-spacing: 0.15em;
-    border-width: 3px;
-  }
-  .contact-label { font-size: 0.75rem; min-width: auto; }
-  .contact-value { font-size: 1rem; }
 }
 
 @media (max-width: 480px) {
