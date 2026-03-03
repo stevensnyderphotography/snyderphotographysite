@@ -793,7 +793,7 @@ ul  { list-style: none; }
 }
 
 .splash-logo {
-  width: clamp(2000.7px, 250.09vw, 3667.95px);
+  width: clamp(260px, 38vw, 580px);
   height: auto;
   display: block;
 }
