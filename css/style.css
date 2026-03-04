@@ -696,6 +696,13 @@ ul  { list-style: none; }
   max-height: 94vh;
 }
 
+.lb-img-wrap {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+  max-width: 100%;
+}
+
 .lb-img {
   max-width: 90vw;
   max-height: 84vh;
@@ -736,14 +743,18 @@ ul  { list-style: none; }
 .lb-btn:hover { color: #fff; }
 
 .lb-close {
-  top: 22px;
-  right: 26px;
-  width: 42px;
-  height: 42px;
-  border: 1px solid rgba(255,255,255,0.18) !important;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  background: rgba(0,0,0,0.75) !important;
+  border: none !important;
   border-radius: 0;
+  color: #ffffff;
 }
-.lb-close:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.4) !important; }
+.lb-close:hover { background: rgba(0,0,0,0.95) !important; color: #ffffff; }
+.lb-close:focus-visible { outline: 3px solid #ffffff; outline-offset: 0; }
 
 .lb-prev {
   top: 50%;
@@ -774,7 +785,7 @@ ul  { list-style: none; }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 40px 38vh;
+  padding: 0 40px 320px;
   overflow: hidden;
 }
 
@@ -893,7 +904,7 @@ ul  { list-style: none; }
 .splash-cta-wrap {
   position: relative;
   z-index: 2;
-  margin-top: calc(4rem + 20vh);
+  margin-top: 230px;
   text-align: center;
   margin-left: -10%;
 }
@@ -947,7 +958,9 @@ ul  { list-style: none; }
   height: auto;
 }
 .page-home .gallery-item:nth-child(1) img,
-.page-home .gallery-item:nth-child(7) img {
+.page-home .gallery-item:nth-child(7) img,
+.page-home .gallery-item:nth-child(10) img,
+.page-home .gallery-item:nth-child(11) img {
   object-fit: contain;
   background: #000;
 }
@@ -1060,6 +1073,7 @@ ul  { list-style: none; }
    ============================================================ */
 .page-about .page-header-plain { padding-top: 0; padding-bottom: 0; }
 .page-about .footer { margin-top: 0; }
+.about-cta-wrap { text-align: left; }
 
 body.page-about {
   display: flex;
@@ -1228,7 +1242,7 @@ body.page-about {
   width: 100%;
   background: transparent;
   border: none;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid #606060;
   padding: 4px 0;
   font-size: 0.95rem;
   color: #ffffff;
@@ -1244,7 +1258,7 @@ body.page-about {
 }
 .quote-field input::placeholder,
 .quote-field textarea::placeholder {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.5);
 }
 .quote-field textarea {
   resize: vertical;
@@ -1480,7 +1494,7 @@ body.page-about {
   .nav-menu.open .nav-dropdown li a { padding-left: 36px; }
 
   /* Splash — fix overflow on phones */
-  .splash { padding: 5vh 20px 6vh; }
+  .splash { padding: 40px 20px 50px; }
   .splash-logo,
   .splash-nav { width: min(90vw, 1000px); }
   .splash-tagline {
@@ -1493,7 +1507,7 @@ body.page-about {
     border-width: 3px;
     letter-spacing: 0.15em;
   }
-  .splash-cta-wrap { margin-top: calc(2rem + 8vh); }
+  .splash-cta-wrap { margin-top: 90px; }
 
   /* Home page */
   .home-intro { padding: 60px 24px 50px; }

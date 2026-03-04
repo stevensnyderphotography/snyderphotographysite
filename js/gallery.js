@@ -102,7 +102,7 @@ class Gallery {
 
       const img = document.createElement('img');
       img.src     = `${this.base}/${photo.file}`;
-      img.alt     = photo.caption || this._label(photo.file);
+      img.alt     = photo.alt || photo.caption || this._label(photo.file);
       img.loading = 'lazy';
       img.decoding = 'async';
 
@@ -148,14 +148,6 @@ class Gallery {
     lb.innerHTML = `
       <div class="lb-backdrop"></div>
 
-      <button class="lb-btn lb-close" aria-label="Close">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-          <line x1="18" y1="6"  x2="6"  y2="18"/>
-          <line x1="6"  y1="6"  x2="18" y2="18"/>
-        </svg>
-      </button>
-
       <button class="lb-btn lb-prev" aria-label="Previous photo">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
              stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
@@ -171,7 +163,16 @@ class Gallery {
       </button>
 
       <div class="lb-inner">
-        <img class="lb-img" src="" alt="">
+        <div class="lb-img-wrap">
+          <img class="lb-img" src="" alt="">
+          <button class="lb-btn lb-close" aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="18" y1="6"  x2="6"  y2="18"/>
+              <line x1="6"  y1="6"  x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
         <div class="lb-bar">
           <span class="lb-counter"></span>
           <span class="lb-caption"></span>
@@ -224,7 +225,7 @@ class Gallery {
 
   /* ---------- Show current photo ---------- */
   _show() {
-    const { file, caption } = this.photos[this.idx];
+    const { file, caption, alt } = this.photos[this.idx];
     const src = `${this.base}/${file}`;
 
     this.lb.img.classList.add('fading');
@@ -232,7 +233,7 @@ class Gallery {
     const tmp = new Image();
     tmp.onload = tmp.onerror = () => {
       this.lb.img.src = src;
-      this.lb.img.alt = caption || this._label(file);
+      this.lb.img.alt = alt || caption || this._label(file);
       requestAnimationFrame(() => this.lb.img.classList.remove('fading'));
     };
     tmp.src = src;
@@ -271,9 +272,10 @@ class Gallery {
     } catch(e) { /* no titles.json — use inline captions */ }
 
     const merged = photos.map(p => {
-      const f      = typeof p === 'string' ? p : p.file;
-      const inline = typeof p === 'string' ? '' : (p.caption || '');
-      return { file: f, caption: titles[f] !== undefined ? titles[f] : inline };
+      const f         = typeof p === 'string' ? p : p.file;
+      const inline    = typeof p === 'string' ? '' : (p.caption || '');
+      const inlineAlt = typeof p === 'string' ? '' : (p.alt || '');
+      return { file: f, caption: titles[f] !== undefined ? titles[f] : inline, alt: inlineAlt };
     });
 
     return new Gallery(containerId, merged, basePath);
