@@ -784,8 +784,8 @@ ul  { list-style: none; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  padding: 100px 40px 40px;
+  justify-content: center;
+  padding: 0 40px 320px;
   overflow: hidden;
 }
 
@@ -820,10 +820,8 @@ ul  { list-style: none; }
 }
 
 .splash-logo {
-  width: auto;
+  width: clamp(280px, 45vw, 650px);
   height: auto;
-  max-width: clamp(280px, 45vw, 2000px);
-  max-height: 35vh;
   display: block;
 }
 
@@ -906,7 +904,7 @@ ul  { list-style: none; }
 .splash-cta-wrap {
   position: relative;
   z-index: 2;
-  margin-top: 120px;
+  margin-top: 230px;
   text-align: center;
   margin-left: -10%;
 }
