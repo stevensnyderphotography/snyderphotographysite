@@ -1494,7 +1494,9 @@ body.page-about {
   .nav-menu.open .nav-dropdown li a { padding-left: 36px; }
 
   /* Splash — fix overflow on phones */
-  .splash { padding: 40px 20px 50px; }
+  .splash { padding: 40px 20px 185px; }
+  .splash-logo-wrap { margin-left: 0; }
+  .splash-tagline-wrap { margin-left: -1%; }
   .splash-logo,
   .splash-nav { width: min(90vw, 1000px); }
   .splash-tagline {
@@ -1507,7 +1509,7 @@ body.page-about {
     border-width: 3px;
     letter-spacing: 0.15em;
   }
-  .splash-cta-wrap { margin-top: 90px; }
+  .splash-cta-wrap { margin-top: 90px; margin-left: 0; }
 
   /* Home page */
   .home-intro { padding: 60px 24px 50px; }
@@ -1530,30 +1532,42 @@ body.page-about {
   .home-footer a svg { width: 22px; height: 22px; }
   .home-footer-dot { font-size: 0.75rem; padding: 0 2px; }
 
-  /* About page — restore left padding when layout stacks */
-  .page-about main { padding: 20px; }
+  /* About page */
+  .page-about .site-header-content { padding: 8px 20px; }
   .page-about .site-header-logo {
-    width: clamp(160px, 45vw, 260px) !important;
+    width: clamp(120px, 32vw, 180px) !important;
     height: auto !important;
   }
+  .page-about main { padding: 10px 16px; }
+  .page-about .about-layout { gap: 16px; }
+  .page-about .about-img-wrap {
+    width: 140px !important;
+    height: 140px !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+  }
+  .page-about .about-img-wrap img { height: 100%; }
+  .page-about .about-name { font-size: 1.5rem; margin-bottom: 10px; }
+  .page-about .about-text-block p { font-size: 0.9rem; margin-bottom: 0.6em; }
+  .page-about .about-cta-wrap { margin-top: 8px; }
+  .page-about .splash-cta { padding: 10px 24px; font-size: 0.8rem; letter-spacing: 0.18em; }
+  .page-about .footer { padding: 16px 20px; }
 
   /* Contact / Quote page */
-  .contact-intro,
-  .contact-subtitle {
-    font-size: clamp(1.2rem, 4.5vw, 1.8rem);
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-  .page-contact .contact-wrap { padding: 5% 20px 0; margin: 0 auto; }
-  .quote-field { margin-bottom: 24px; }
+  .page-contact .contact-intro,
+  .page-contact .contact-subtitle { display: none; }
+  .page-contact .site-header-logo { width: clamp(120px, 30vw, 160px) !important; }
+  .page-contact .site-header-content { padding: 6px 20px; }
+  .page-contact .contact-wrap { padding: 8px 16px 0; margin: 0 auto; }
+  .quote-field { margin-bottom: 8px; }
   .quote-field label { font-size: 0.75rem; }
   .quote-field input,
-  .quote-field textarea { font-size: 1.1rem; }
+  .quote-field textarea { font-size: 0.95rem; }
   .quote-btn {
-    font-size: 1rem;
-    padding: 16px 32px;
-    letter-spacing: 0.15em;
-    border-width: 3px;
+    font-size: 0.85rem;
+    padding: 8px 20px;
+    letter-spacing: 0.2em;
+    border-width: 2px;
   }
   .contact-label { font-size: 0.75rem; min-width: auto; }
   .contact-value { font-size: 1rem; }
