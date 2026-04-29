@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request a Quote — Steven Snyder Photography</title>
+  <meta name="description" content="Request a quote from Steven Snyder Photography.">
+  <link rel="stylesheet" href="css/style.css?v=14">
+</head>
+<body class="page-contact">
+
+  <header class="inner-header">
+    <div class="inner-header-content">
+      <a href="index.html" class="inner-header-logo">
+        <img src="assets/logo-white.png" alt="Steven Snyder Photography">
+      </a>
+      <nav class="inner-nav">
+        <a href="fundraisers.html">Fundraisers</a>
+        <span class="inner-nav-dot">&middot;</span>
+        <a href="celebrations.html">Celebrations</a>
+        <span class="inner-nav-dot">&middot;</span>
+        <a href="music.html">Music</a>
+        <span class="inner-nav-dot">&middot;</span>
+        <a href="wildlife.html">Wildlife</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="contact-page-wrap">
+      <p class="contact-page-intro">From national fundraisers to small celebrations, every event has a story. I'll capture yours.</p>
+      <p class="contact-page-sub">Photographing events throughout the Washington, D.C. area.</p>
+
+      <form class="quote-form" name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="quote-request">
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+        <div class="quote-field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your full name">
+        </div>
+
+        <div class="quote-field">
+          <label for="location">Location</label>
+          <input type="text" id="location" name="location" placeholder="City, state or venue">
+        </div>
+
+        <div class="quote-field">
+          <label for="telephone">Telephone</label>
+          <input type="tel" id="telephone" name="telephone" placeholder="(000) 000-0000">
+        </div>
+
+        <div class="quote-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="your@email.com">
+        </div>
+
+        <div class="quote-field">
+          <label for="event-details">Event Details</label>
+          <textarea id="event-details" name="event-details" rows="3" placeholder="Date, venue, organization, estimated attendance, and any special requirements."></textarea>
+        </div>
+
+        <div class="quote-submit">
+          <button type="submit" class="quote-btn">Request a Quote</button>
+        </div>
+      </form>
+
+      <div class="quote-sent" id="quote-sent" style="display:none;">
+        <p>Every event has a story - I'll capture yours.</p>
+      </div>
+
+      <div class="contact-info-block">
+        <div class="contact-row">
+          <span class="contact-label">Telephone</span>
+          <span class="contact-value"><a href="tel:+12027447840">(202) 744-7840</a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Email</span>
+          <span class="contact-value"><a href="mailto:Steve@StevenSnyderPhotography.com">Steve@StevenSnyderPhotography.com</a></span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="home-footer">
+    <a href="index.html">Home</a>
+    <span class="home-footer-dot">&middot;</span>
+    <a href="fundraisers.html">Fundraisers</a>
+    <span class="home-footer-dot">&middot;</span>
+    <a href="celebrations.html">Celebrations</a>
+    <span class="home-footer-dot">&middot;</span>
+    <a href="music.html">Music</a>
+    <span class="home-footer-dot">&middot;</span>
+    <a href="wildlife.html">Wildlife</a>
+    <span class="home-footer-dot">&middot;</span>
+    <a href="contact.html">Contact</a>
+    <span class="home-footer-dot">&middot;</span>
+    <a href="https://www.flickr.com/photos/203197420@N04/collections/72157724508147626/" target="_blank" rel="noopener">See more photos at Flickr</a>
+    <span class="home-footer-dot">&middot;</span>
+    <a href="about.html">About</a>
+  </footer>
+
+  <script src="js/gallery.js"></script>
+  <script>
+    document.querySelector('.quote-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var form = this;
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(function () {
+        form.style.display = 'none';
+        document.getElementById('quote-sent').style.display = 'block';
+      });
+    });
+
+    document.getElementById('telephone').addEventListener('input', function () {
+      const digits = this.value.replace(/\D/g, '').slice(0, 10);
+      if (digits.length === 0) {
+        this.value = '';
+      } else if (digits.length <= 3) {
+        this.value = '(' + digits;
+      } else if (digits.length <= 6) {
+        this.value = '(' + digits.slice(0, 3) + ') ' + digits.slice(3);
+      } else {
+        this.value = '(' + digits.slice(0, 3) + ') ' + digits.slice(3, 6) + '-' + digits.slice(6);
+      }
+    });
+  </script>
+</body>
+</html>
