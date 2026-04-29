@@ -28,7 +28,7 @@
 
   <main>
     <div class="contact-page-wrap">
-      <p class="contact-page-intro">From national fundraisers to small celebrations, every event has a story. I'll capture yours.</p>
+      <p class="contact-page-intro">Every event has a story — I'll capture yours.</p>
       <p class="contact-page-sub">Photographing events throughout the Washington, D.C. area.</p>
 
       <form class="quote-form" name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
@@ -66,7 +66,7 @@
       </form>
 
       <div class="quote-sent" id="quote-sent" style="display:none;">
-        <p>Every event has a story - I'll capture yours.</p>
+        <p class="contact-page-intro">Thanks! I'll get back to you shortly.</p>
       </div>
 
       <div class="contact-info-block">
@@ -111,6 +111,8 @@
         body: new URLSearchParams(new FormData(form)).toString()
       }).then(function () {
         form.style.display = 'none';
+        document.querySelector('.contact-page-intro').style.display = 'none';
+        document.querySelector('.contact-page-sub').style.display = 'none';
         document.getElementById('quote-sent').style.display = 'block';
       });
     });
