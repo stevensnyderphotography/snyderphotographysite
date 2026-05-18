@@ -6,28 +6,56 @@
   <title>Wildlife — Steven Snyder Photography</title>
   <meta name="description" content="Wildlife and bird photography by Steven Snyder.">
   <link rel="stylesheet" href="css/style.css?v=47">
+  <style>
+    .splash-nav {
+      position: relative;
+      z-index: 3;
+      padding: 22px 40px 0;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .splash-nav a {
+      font-size: 1.0rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      padding: 8px 16px;
+      display: inline-flex;
+      align-items: center;
+      transition: color 0.2s;
+    }
+    .splash-nav a:hover { color: #fff; }
+    .splash-nav-dot {
+      color: rgba(255,255,255,0.4);
+      font-size: 1.0rem;
+      padding: 0 4px;
+    }
+  </style>
 </head>
 <body class="page-wildlife">
 
-  <header class="inner-header">
-    <div class="inner-header-content">
-      <a href="index.html" class="inner-header-logo">
-        <img src="assets/logo-white.png" alt="Steven Snyder Photography">
-      </a>
-      <nav class="inner-nav">
-        <a href="fundraisers.html">Fundraisers</a>
-        <span class="inner-nav-dot">&middot;</span>
-        <a href="celebrations.html">Celebrations</a>
-        <span class="inner-nav-dot">&middot;</span>
-        <a href="music.html">Music</a>
-        <span class="inner-nav-dot">&middot;</span>
-        <a href="wildlife.html" class="active">Wildlife</a>
-        <a href="contact.html" class="inner-nav-contact">Request a Quote</a>
-      </nav>
-    </div>
-  </header>
-
-  <div class="cat-hero cat-hero-natural">
+  <div class="cat-hero cat-hero-natural" style="padding-top: 60px; max-height: none; background-origin: content-box;">
+    <nav class="splash-nav" style="position: absolute; top: 0; left: 0; right: 0;">
+      <a href="index.html">Home</a>
+      <span class="splash-nav-dot">&middot;</span>
+      <a href="fundraisers.html">Fundraisers</a>
+      <span class="splash-nav-dot">&middot;</span>
+      <a href="celebrations.html">Celebrations</a>
+      <span class="splash-nav-dot">&middot;</span>
+      <a href="music.html">Music</a>
+      <span class="splash-nav-dot">&middot;</span>
+      <a href="wildlife.html">Wildlife</a>
+      <span class="splash-nav-dot">&middot;</span>
+      <a href="contact.html">Contact</a>
+      <span class="splash-nav-dot">&middot;</span>
+      <a href="https://www.flickr.com/photos/203197420@N04/collections/72157724508147626/" target="_blank" rel="noopener">See more photos at Flickr</a>
+      <span class="splash-nav-dot">&middot;</span>
+      <a href="about.html">About</a>
+    </nav>
     <img src="photos/wildlife/DSC07935-DxO_DeepPRIME XD3.jpg" alt="Wildlife photography" class="cat-hero-img">
     <div class="cat-hero-overlay"></div>
     <div class="cat-hero-content">
@@ -41,24 +69,6 @@
       <div id="gallery-container"></div>
     </div>
   </section>
-
-  <footer class="home-footer">
-    <a href="index.html">Home</a>
-    <span class="home-footer-dot">&middot;</span>
-    <a href="fundraisers.html">Fundraisers</a>
-    <span class="home-footer-dot">&middot;</span>
-    <a href="celebrations.html">Celebrations</a>
-    <span class="home-footer-dot">&middot;</span>
-    <a href="music.html">Music</a>
-    <span class="home-footer-dot">&middot;</span>
-    <a href="wildlife.html">Wildlife</a>
-    <span class="home-footer-dot">&middot;</span>
-    <a href="contact.html">Contact</a>
-    <span class="home-footer-dot">&middot;</span>
-    <a href="https://www.flickr.com/photos/203197420@N04/collections/72157724508147626/" target="_blank" rel="noopener">See more photos at Flickr</a>
-    <span class="home-footer-dot">&middot;</span>
-    <a href="about.html">About</a>
-  </footer>
 
   <script src="js/gallery.js"></script>
   <script>

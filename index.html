@@ -6,6 +6,35 @@
   <title>Steven Snyder Photography</title>
   <meta name="description" content="Event photography by Steven Snyder — fundraisers, galas, bar and bat mitzvahs, and wildlife. Serving Washington, D.C., Maryland, and Northern Virginia.">
   <link rel="stylesheet" href="css/style.css?v=47">
+  <style>
+    .splash-nav {
+      position: relative;
+      z-index: 3;
+      padding: 22px 40px 0;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .splash-nav a {
+      font-size: 1.0rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      padding: 8px 16px;
+      display: inline-flex;
+      align-items: center;
+      transition: color 0.2s;
+    }
+    .splash-nav a:hover { color: #fff; }
+    .splash-nav-dot {
+      color: rgba(255,255,255,0.4);
+      font-size: 1.0rem;
+      padding: 0 4px;
+    }
+  </style>
 </head>
 <body class="page-home">
 
@@ -14,7 +43,26 @@
     <div class="splash-backdrop" style="background-image: url('photos/hero.jpg'); background-position: center 30%;"></div>
     <div class="splash-backdrop-overlay"></div>
 
-<div class="splash-logo-wrap">
+    <nav class="splash-nav" style="align-self: stretch;">
+      <a href="index.html">Home</a>
+      <span class="splash-nav-dot">&middot;</span>
+      <a href="fundraisers.html">Fundraisers</a>
+      <span class="splash-nav-dot">&middot;</span>
+      <a href="celebrations.html">Celebrations</a>
+      <span class="splash-nav-dot">&middot;</span>
+      <a href="music.html">Music</a>
+      <span class="splash-nav-dot">&middot;</span>
+      <a href="wildlife.html">Wildlife</a>
+      <span class="splash-nav-dot">&middot;</span>
+      <a href="contact.html">Contact</a>
+      <span class="splash-nav-dot">&middot;</span>
+      <a href="https://www.flickr.com/photos/203197420@N04/collections/72157724508147626/" target="_blank" rel="noopener">See more photos at Flickr</a>
+      <span class="splash-nav-dot">&middot;</span>
+      <a href="about.html">About</a>
+    </nav>
+
+
+<div class="splash-logo-wrap" style="transform: translateY(-80px);">
       <a href="index.html">
         <img src="assets/logo-white.png" alt="Steven Snyder Photography" class="splash-logo">
       </a>
@@ -77,24 +125,6 @@
 
     </div>
   </section>
-
-  <footer class="home-footer">
-    <a href="index.html">Home</a>
-    <span class="home-footer-dot">&middot;</span>
-    <a href="fundraisers.html">Fundraisers</a>
-    <span class="home-footer-dot">&middot;</span>
-    <a href="celebrations.html">Celebrations</a>
-    <span class="home-footer-dot">&middot;</span>
-    <a href="music.html">Music</a>
-    <span class="home-footer-dot">&middot;</span>
-    <a href="wildlife.html">Wildlife</a>
-    <span class="home-footer-dot">&middot;</span>
-    <a href="contact.html">Contact</a>
-    <span class="home-footer-dot">&middot;</span>
-    <a href="https://www.flickr.com/photos/203197420@N04/collections/72157724508147626/" target="_blank" rel="noopener">See more photos at Flickr</a>
-    <span class="home-footer-dot">&middot;</span>
-    <a href="about.html">About</a>
-  </footer>
 
   <script src="js/gallery.js"></script>
 </body>
