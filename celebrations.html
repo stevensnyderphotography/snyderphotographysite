@@ -35,13 +35,57 @@
       font-size: 1.0rem;
       padding: 0 4px;
     }
+    .topic-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      padding: 0 40px 0 28px;
+      gap: 24px;
+    }
+    .topic-header-logo {
+      flex: 0 0 auto;
+      line-height: 0;
+    }
+    .topic-header-logo img {
+      height: 192px;
+      display: block;
+    }
+    .topic-header .splash-nav {
+      flex: 1;
+      padding: 0;
+    }
+    @media (max-width: 600px) {
+      .splash-nav { flex-direction: column; gap: 4px; }
+      .splash-nav-dot { display: none; }
+      .splash-logo-wrap { transform: none !important; }
+      .splash-logo { width: min(90vw, 360px) !important; }
+      .topic-header {
+        position: static;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px;
+      }
+      .topic-header-logo img { height: 80px; }
+      .cat-hero {
+        display: block !important;
+        padding-top: 0 !important;
+      }
+    }
   </style>
 </head>
 <body class="page-celebrations">
 
   <div class="cat-hero cat-hero-natural" style="padding-top: 60px; max-height: none; background-origin: content-box;">
-    <a href="index.html" style="position: absolute; top: -50px; left: 28px; z-index: 4; line-height: 0;"><img src="assets/logo-white.png" alt="Steven Snyder Photography" style="height: 192px; display: block;"></a>
-    <nav class="splash-nav" style="position: absolute; top: 0; left: 0; right: 0;">
+    <header class="topic-header">
+      <a href="index.html" class="topic-header-logo">
+        <img src="assets/logo-white.png" alt="Steven Snyder Photography">
+      </a>
+      <nav class="splash-nav">
       <a href="index.html">Home</a>
       <span class="splash-nav-dot">&middot;</span>
       <a href="fundraisers.html">Fundraisers</a>
@@ -59,7 +103,8 @@
       <a href="contact.html" class="splash-cta">Request a Quote</a>
       <span class="splash-nav-dot">&middot;</span>
       <a href="about.html">About</a>
-    </nav>
+      </nav>
+    </header>
     <img src="photos/celebrations/DSC05426-DxO_DeepPRIME XD3.jpg" alt="Bar and Bat Mitzvah celebration" class="cat-hero-img">
     <div class="cat-hero-overlay"></div>
     <div class="cat-hero-content">
