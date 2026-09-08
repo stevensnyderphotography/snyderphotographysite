@@ -101,7 +101,7 @@ class Gallery {
       item.setAttribute('aria-label', `View photo ${i + 1}`);
 
       const img = document.createElement('img');
-      img.src     = `${this.base}/${photo.file}`;
+      img.src     = `${this.base}/${encodeURIComponent(photo.file)}`;
       img.alt     = photo.alt || photo.caption || this._label(photo.file);
       img.loading = 'lazy';
       img.decoding = 'async';
@@ -226,7 +226,7 @@ class Gallery {
   /* ---------- Show current photo ---------- */
   _show() {
     const { file, caption, alt } = this.photos[this.idx];
-    const src = `${this.base}/${file}`;
+    const src = `${this.base}/${encodeURIComponent(file)}`;
 
     this.lb.img.classList.add('fading');
 
