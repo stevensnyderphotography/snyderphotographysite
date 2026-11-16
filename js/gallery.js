@@ -263,11 +263,25 @@ class Gallery {
     return file.replace(/\.[^/.]+$/, '').replace(/[-_]+/g, ' ').trim();
   }
 
-  /* ---------- Async loader — fetches titles.json then renders ---------- */
-  static async load(containerId, photos, basePath) {
+  /* ---------- Async loader — fetches titles.json (and photos.json when useManifest) then renders ---------- */
+  static async load(containerId, photos, basePath, useManifest = false) {
+    const base = basePath.replace(/\/$/, '');
+
+    if (useManifest) {
+      try {
+        const r = await fetch(base + '/photos.json');
+        if (r.ok) {
+          const m = await r.json();
+          if (Array.isArray(m.order)) {
+            photos = m.order.map(file => ({ file, alt: m.alt || '' }));
+          }
+        }
+      } catch(e) { /* no photos.json — use the list in the page */ }
+    }
+
     let titles = {};
     try {
-      const r = await fetch(basePath.replace(/\/$/, '') + '/titles.json');
+      const r = await fetch(base + '/titles.json');
       if (r.ok) titles = await r.json();
     } catch(e) { /* no titles.json — use inline captions */ }
 
