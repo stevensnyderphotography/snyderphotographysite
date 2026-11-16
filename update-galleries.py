@@ -45,8 +45,11 @@ for name in sorted(os.listdir(PHOTOS)):
 # Warn about page/hero images that point at files that no longer exist.
 from urllib.parse import unquote
 missing = []
-for page in sorted(f for f in os.listdir(ROOT) if f.endswith('.html')):
+_home = open(os.path.join(ROOT, 'index.html'), encoding='utf-8').read()
+_linked = set(re.findall(r'href="([\w-]+\.html)"', _home)) | {'index.html'}
+for page in sorted(f for f in os.listdir(ROOT) if f in _linked and os.path.isfile(os.path.join(ROOT, f))):
     text = open(os.path.join(ROOT, page), encoding='utf-8').read()
+    text = re.sub(r'<!--.*?-->', '', text, flags=re.S)
     for ref in set(re.findall(r"""(?:src=["']|url\(['"]?)(photos/[^"')]+)""", text)):
         if not os.path.exists(os.path.join(ROOT, unquote(ref))):
             missing.append((page, ref))
@@ -56,3 +59,57 @@ if missing:
         print(f'    {page}: {ref}')
 
 print('\nGalleries updated.' if changed else '\nNo changes.')
+
+# ---- Apply the homepage tile / top image / big home image choices to the pages ----
+from urllib.parse import quote
+
+def apply_slot(page_text, slot, path):
+    """Point the element marked data-slot=<slot> at <path>. Returns (text, found)."""
+    pat = re.compile(r'<(?:img|div)\b[^>]*\bdata-slot="' + re.escape(slot) + r'"[^>]*>')
+    m = pat.search(page_text)
+    if not m:
+        return page_text, False
+    tag = m.group(0)
+    url = quote(path, safe='/')
+    if re.search(r'\bsrc="[^"]*"', tag):
+        new = re.sub(r'\bsrc="[^"]*"', lambda _: f'src="{url}"', tag, count=1)
+    else:
+        new = re.sub(r"url\('[^']*'\)", lambda _: f"url('{url}')", tag, count=1)
+    return page_text[:m.start()] + new + page_text[m.end():], True
+
+def choices():
+    """Yield (page, slot, path) for every choice the site should reflect."""
+    for name in sorted(os.listdir(PHOTOS)):
+        mf = os.path.join(PHOTOS, name, 'photos.json')
+        if not os.path.isfile(mf):
+            continue
+        data = json.load(open(mf))
+        tile = data.get('tile')
+        hero = data.get('hero') or tile
+        if tile:
+            yield 'index.html', f'tile:{name}', f'photos/{name}/{tile}'
+        if hero:
+            yield f'{name}.html', 'hero', f'photos/{name}/{hero}'
+    sj = os.path.join(ROOT, 'site.json')
+    if os.path.isfile(sj):
+        home = json.load(open(sj)).get('home_hero')
+        if home:
+            yield 'index.html', 'home-hero', home
+
+pages = {}
+for page, slot, path in choices():
+    if not os.path.exists(os.path.join(ROOT, path)):
+        print(f'WARNING: {path} is not in the folder, so {page} was left as it was.')
+        continue
+    if not os.path.isfile(os.path.join(ROOT, page)):
+        continue
+    text = pages.get(page) or open(os.path.join(ROOT, page), encoding='utf-8').read()
+    text, found = apply_slot(text, slot, path)
+    if not found:
+        print(f'WARNING: could not find the "{slot}" spot in {page}.')
+    pages[page] = text
+for page, text in pages.items():
+    full = os.path.join(ROOT, page)
+    if open(full, encoding='utf-8').read() != text:
+        open(full, 'w', encoding='utf-8').write(text)
+        print(f'Updated {page}')
