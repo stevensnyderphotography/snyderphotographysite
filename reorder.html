@@ -108,6 +108,8 @@ let homeWork = null;
 const api = (path, body) => fetch(path, body === undefined ? {} : {
   method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Reorder': '1' }, body: JSON.stringify(body)
 }).then(r => r.json());
+const LABELS = { community: 'Nonprofits' };
+const label = f => LABELS[f] || f.charAt(0).toUpperCase() + f.slice(1);
 const enc = p => p.split('/').map(encodeURIComponent).join('/');
 const photoSrc = (folder, file) => 'photos/' + encodeURIComponent(folder) + '/' + encodeURIComponent(file);
 
@@ -222,7 +224,7 @@ function renderHome() {
   if (data.root.length) groups.push({ title: 'Other', paths: data.root.map(f => 'photos/' + f) });
   for (const grp of groups) {
     const box = document.createElement('div'); box.className = 'pickgroup';
-    const h = document.createElement('h3'); h.textContent = grp.title.charAt(0).toUpperCase() + grp.title.slice(1);
+    const h = document.createElement('h3'); h.textContent = label(grp.title);
     const grid = document.createElement('div'); grid.className = 'pickgrid';
     for (const p of grp.paths) {
       const d = document.createElement('div'); d.className = 'pick' + (p === homeWork ? ' chosen' : ''); d.title = p;
@@ -258,7 +260,7 @@ async function save() {
 
 (async () => {
   data = await api('/api/galleries');
-  const names = data.galleries.map(g => g.folder.charAt(0).toUpperCase() + g.folder.slice(1)).concat(['Home page image']);
+  const names = data.galleries.map(g => label(g.folder)).concat(['Home page image']);
   names.forEach((n, i) => {
     const b = document.createElement('button');
     b.className = 'tab'; b.textContent = n;
